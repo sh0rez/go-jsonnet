@@ -1207,21 +1207,16 @@ func evaluateAux(i *interpreter, node ast.Node, tla vmExtMap) (value, TraceEleme
 	return result, manifestationTrace, nil
 }
 
-func PrepareManifestation(node ast.Node, ext vmExtMap, tla vmExtMap, nativeFuncs map[string]*NativeFunction, maxStack int, importer Importer) (value, TraceElement, *interpreter, error) {
-	i, err := buildInterpreter(ext, nativeFuncs, maxStack, importer)
-	if err != nil {
-		return nil, TraceElement{}, nil, err
-	}
-
-	result, trace, err := evaluateAux(i, node, tla)
-	return result, trace, i, err
-}
-
 // TODO(sbarzowski) this function takes far too many arguments - build interpreter in vm instead
 func evaluate(node ast.Node, ext vmExtMap, tla vmExtMap, nativeFuncs map[string]*NativeFunction,
 	maxStack int, importer Importer, stringOutputMode bool) (string, error) {
 
-	result, manifestationTrace, i, err := PrepareManifestation(node, ext, tla, nativeFuncs, maxStack, importer)
+	i, err := buildInterpreter(ext, nativeFuncs, maxStack, importer)
+	if err != nil {
+		return "", err
+	}
+
+	result, manifestationTrace, err := evaluateAux(i, node, tla)
 	if err != nil {
 		return "", err
 	}
@@ -1243,7 +1238,12 @@ func evaluate(node ast.Node, ext vmExtMap, tla vmExtMap, nativeFuncs map[string]
 func evaluateMulti(node ast.Node, ext vmExtMap, tla vmExtMap, nativeFuncs map[string]*NativeFunction,
 	maxStack int, importer Importer, stringOutputMode bool) (map[string]string, error) {
 
-	result, manifestationTrace, i, err := PrepareManifestation(node, ext, tla, nativeFuncs, maxStack, importer)
+	i, err := buildInterpreter(ext, nativeFuncs, maxStack, importer)
+	if err != nil {
+		return nil, err
+	}
+
+	result, manifestationTrace, err := evaluateAux(i, node, tla)
 	if err != nil {
 		return nil, err
 	}
@@ -1255,7 +1255,12 @@ func evaluateMulti(node ast.Node, ext vmExtMap, tla vmExtMap, nativeFuncs map[st
 func evaluateStream(node ast.Node, ext vmExtMap, tla vmExtMap, nativeFuncs map[string]*NativeFunction,
 	maxStack int, importer Importer) ([]string, error) {
 
-	result, manifestationTrace, i, err := PrepareManifestation(node, ext, tla, nativeFuncs, maxStack, importer)
+	i, err := buildInterpreter(ext, nativeFuncs, maxStack, importer)
+	if err != nil {
+		return nil, err
+	}
+
+	result, manifestationTrace, err := evaluateAux(i, node, tla)
 	if err != nil {
 		return nil, err
 	}
