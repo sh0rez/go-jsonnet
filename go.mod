@@ -1,4 +1,4 @@
-module github.com/google/go-jsonnet
+module github.com/sh0rez/go-jsonnet
 
 require (
 	github.com/fatih/color v1.7.0
