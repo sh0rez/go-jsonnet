@@ -199,6 +199,24 @@ func (vm *VM) EvaluateSnippetMulti(filename string, snippet string) (files map[s
 	return
 }
 
+func (vm *VM) EvaluateSnippetWithoutManifestation(filename, snippet string) error {
+	node, err := SnippetToAST(filename, snippet)
+	if err != nil {
+		return err
+	}
+
+	i, err := buildInterpreter(vm.ext, vm.nativeFuncs, vm.MaxStack, vm.importer)
+	if err != nil {
+		return err
+	}
+
+	_, _, err = evaluateAux(i, node, vm.tla)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func snippetToRawAST(filename string, snippet string) (ast.Node, error) {
 	tokens, err := parser.Lex(filename, snippet)
 	if err != nil {
