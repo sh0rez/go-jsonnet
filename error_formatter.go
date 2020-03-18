@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/google/go-jsonnet/ast"
-	"github.com/google/go-jsonnet/internal/errors"
+	"github.com/sh0rez/go-jsonnet/ast"
+	"github.com/sh0rez/go-jsonnet/internal/errors"
 )
 
 // An ErrorFormatter formats errors with stacktraces and color.
@@ -86,7 +86,7 @@ func (ef *termErrorFormatter) formatStatic(err errors.StaticError) string {
 	return buf.String()
 }
 
-const bugURL = "https://github.com/google/go-jsonnet/issues"
+const bugURL = "https://github.com/sh0rez/go-jsonnet/issues"
 
 func (ef *termErrorFormatter) formatInternal(err error) string {
 	return "INTERNAL ERROR: " + err.Error() + "\n" +

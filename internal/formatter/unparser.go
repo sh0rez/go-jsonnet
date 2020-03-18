@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/google/go-jsonnet/ast"
+	"github.com/sh0rez/go-jsonnet/ast"
 )
 
 type unparser struct {

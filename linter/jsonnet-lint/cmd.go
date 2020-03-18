@@ -5,9 +5,9 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/google/go-jsonnet/linter"
+	"github.com/sh0rez/go-jsonnet/linter"
 
-	jsonnet "github.com/google/go-jsonnet"
+	jsonnet "github.com/sh0rez/go-jsonnet"
 )
 
 // ExitProblemsFound is used if we find problems with the code

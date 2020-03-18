@@ -30,9 +30,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/google/go-jsonnet/ast"
-	"github.com/google/go-jsonnet/internal/parser"
-	"github.com/google/go-jsonnet/internal/testutils"
+	"github.com/sh0rez/go-jsonnet/ast"
+	"github.com/sh0rez/go-jsonnet/internal/parser"
+	"github.com/sh0rez/go-jsonnet/internal/testutils"
 )
 
 var update = flag.Bool("update", false, "update .golden files")

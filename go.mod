@@ -1,4 +1,4 @@
-module github.com/google/go-jsonnet
+module github.com/sh0rez/go-jsonnet
 
 go 1.13
 

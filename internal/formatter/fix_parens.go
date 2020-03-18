@@ -17,8 +17,8 @@ limitations under the License.
 package formatter
 
 import (
-	"github.com/google/go-jsonnet/ast"
-	"github.com/google/go-jsonnet/internal/pass"
+	"github.com/sh0rez/go-jsonnet/ast"
+	"github.com/sh0rez/go-jsonnet/internal/pass"
 )
 
 // FixParens is a formatter pass that replaces ((e)) with (e).

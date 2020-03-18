@@ -13,7 +13,7 @@ limitations under the License.
 
 package formatter
 
-import "github.com/google/go-jsonnet/internal/formatter"
+import "github.com/sh0rez/go-jsonnet/internal/formatter"
 
 // Options is a set of parameters that control the reformatter's behaviour.
 type Options = formatter.Options

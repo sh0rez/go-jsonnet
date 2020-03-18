@@ -1,8 +1,8 @@
 package linter
 
 import (
-	"github.com/google/go-jsonnet/ast"
-	"github.com/google/go-jsonnet/internal/parser"
+	"github.com/sh0rez/go-jsonnet/ast"
+	"github.com/sh0rez/go-jsonnet/internal/parser"
 )
 
 type vScope map[ast.Identifier]*variable

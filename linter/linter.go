@@ -4,8 +4,8 @@ package linter
 import (
 	"io"
 
-	"github.com/google/go-jsonnet/ast"
-	"github.com/google/go-jsonnet/internal/errors"
+	"github.com/sh0rez/go-jsonnet/ast"
+	"github.com/sh0rez/go-jsonnet/internal/errors"
 )
 
 // ErrorWriter encapsulates a writer and an error state indicating when at least
