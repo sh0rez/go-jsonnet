@@ -20,7 +20,7 @@ type Options = formatter.Options
 
 // DefaultOptions returns the recommended formatter behaviour.
 func DefaultOptions() Options {
-	return formatter.DefaultOptions
+	return formatter.DefaultOptions()
 }
 
 // Format returns code that is equivalent to its input but better formatted
